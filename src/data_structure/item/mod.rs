@@ -215,6 +215,14 @@ pub struct ItemMeta {
     pub num_items: Option<usize>,
 }
 
+#[derive(Deserialize, Serialize, Debug, PartialEq, Clone)]
+#[serde(rename_all(deserialize = "camelCase", serialize = "camelCase"))]
+pub struct Tag {
+    pub tag: String,
+    #[serde(alias = "type", rename = "type")]
+    pub type_: Option<usize>,
+}
+
 #[cfg(test)]
 mod test_item_deserialization {
     use super::*;
